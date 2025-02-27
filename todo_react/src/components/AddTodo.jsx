@@ -5,29 +5,30 @@ export default function AddTodo({ addTodo }) {
     const [warning, setWarning] = useState('');
 
     return (
-        <div>
-            <div>
-            {warning ? <div>{warning}</div> : ""}
+        <div className='add-task'>
+            <div className='add-task__input-cont'>
+                <input
+                    placeholder="Add todo"
+                    value={title}
+                    onChange={(e) => {
+                        setTitle(e.target.value)
+                        if (e.target.value.replaceAll(' ', '').length > 0) {
+                            setWarning("")
+                        }
+                    }}
+                />
+                {warning && <div>{warning}</div>}
             </div>
-            <input
-                placeholder="Add todo"
-                value={title}
-                onChange={(e) => {
-                    setTitle(e.target.value)
-                    if (e.target.value.length > 0){
-                        setWarning("")
-                    }
-                }}
-            />
             <button
+                className="btn btn-primary"
                 onClick={() => {
                     setTitle('');
-                    if (title.length > 0) {
+                    if (title.replaceAll(' ', '').length > 0) {
                         addTodo(title);
                         setWarning("")
                     }
                     else {
-                        setWarning("Empty task!")    
+                        setWarning("Empty task!")
                     }
                 }}
             >

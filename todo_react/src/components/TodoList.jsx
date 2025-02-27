@@ -7,9 +7,9 @@ export default function TaskList({
 }) {
     if (todos.length > 0) {
         return (
-            <ul>
-                {todos.map((todo) => (
-                    <li
+            <ul className='list-of-task list-group'>
+                {todos.toReversed().map((todo) => (
+                    <li className='list-of-task__task list-group-item'
                         key={todo.id}>
                         <Todo
                             todo={todo}

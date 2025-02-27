@@ -32,17 +32,17 @@ export default function App() {
   }
 
   return (
-    <div>
-      <div> 
+    <div className='main'>
+      <div className='main__title-text'> 
         <h1>ToDo app CRUD</h1>
       </div>
+      <AddTodo
+        addTodo={handleAddTodo}
+      />
       <TodoList
         todos={todos}
         updateTodo={handleChangeTodo}
         deleteTodo={handleDeleteTodo}
-      />
-      <AddTodo
-        addTodo={handleAddTodo}
       />
     </div>
   );

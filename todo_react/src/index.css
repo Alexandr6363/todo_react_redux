@@ -1,0 +1,36 @@
+div {
+  padding: 3px;
+  margin: 3px; 
+  /* border: 1px solid black;  */
+}
+
+.main__title-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+.list-of-task__task__cont, .add-task__input-cont {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.add-task {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.list-of-task__task__cont__title {
+  width: 70%;
+}
+
+.btn {
+  margin: 3px;
+}
