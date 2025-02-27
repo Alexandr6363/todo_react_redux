@@ -17,7 +17,7 @@ export default function AddTodo({ addTodo }) {
                         }
                     }}
                 />
-                {warning && <div>{warning}</div>}
+                {warning && <div className='warning'>{warning}</div>}
             </div>
             <button
                 className="btn btn-primary"

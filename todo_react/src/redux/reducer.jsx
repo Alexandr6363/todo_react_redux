@@ -2,7 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const todoSlice = createSlice({
     name: 'todos',
-    initialState: [],
+    initialState: [
+        {id:0, title:"Установить React"},
+        {id:1, title:"Написать приложение на React"},
+        {id:2, title:"Добавить Redux"},
+        {id:3, title:"Добавить оформление"},
+        {id:4, title:"Добавить адаптивности"},
+        {id:5, title:"Исправить баги"},
+        {id:6, title:"Написать README"},
+    ],
     reducers: {
         addTodo: (state, action) => {
             const todo = {

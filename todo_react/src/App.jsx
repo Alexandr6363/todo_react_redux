@@ -7,8 +7,6 @@ import { useDispatch } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-let Id = 0
-
 export default function App() {
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
@@ -17,7 +15,7 @@ export default function App() {
     dispatch(
       addTodo({
         title: title,
-        id: Id++,
+        id: todos.length + 1,
       }))
   }
 
@@ -33,17 +31,21 @@ export default function App() {
 
   return (
     <div className='main'>
-      <div className='main__title-text'> 
-        <h1>ToDo app CRUD</h1>
+      <div></div>
+      <div>
+        <div className='main__title-text'>
+          <h1>ToDo app CRUD</h1>
+        </div>
+        <AddTodo
+          addTodo={handleAddTodo}
+        />
+        <TodoList
+          todos={todos}
+          updateTodo={handleChangeTodo}
+          deleteTodo={handleDeleteTodo}
+        />
       </div>
-      <AddTodo
-        addTodo={handleAddTodo}
-      />
-      <TodoList
-        todos={todos}
-        updateTodo={handleChangeTodo}
-        deleteTodo={handleDeleteTodo}
-      />
+      <div></div>
     </div>
   );
 }

@@ -1,1 +1,2 @@
-# todo_react_redux
+# ToDo APP React+Redux+Bootstrap+JS
+

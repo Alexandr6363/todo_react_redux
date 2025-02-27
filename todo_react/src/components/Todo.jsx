@@ -30,7 +30,7 @@ export default function Task({ todo,
                             })
                         }}
                     />
-                    {warning && <div>{warning}</div>}
+                    {warning && <div className='warning'>{warning}</div>}
                 </div>
                 <div>
                     <button className="btn btn-primary" onClick={() => { handleSumbit(todo) }}>Save</button>

@@ -1,7 +1,11 @@
-div {
-  padding: 3px;
-  margin: 3px; 
-  /* border: 1px solid black;  */
+@media (min-width: 800px) {
+  .main {
+    display: grid;
+    grid-template-columns: 2fr 8fr 2fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
 }
 
 .main__title-text {
@@ -11,7 +15,8 @@ div {
   height: 150px;
 }
 
-.list-of-task__task__cont, .add-task__input-cont {
+.list-of-task__task__cont,
+.add-task__input-cont {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -25,6 +30,7 @@ div {
   justify-content: center;
   align-items: center;
   align-content: center;
+  padding-bottom: 30px;
 }
 
 .list-of-task__task__cont__title {
@@ -33,4 +39,10 @@ div {
 
 .btn {
   margin: 3px;
+}
+
+.warning {
+  color: red;
+  font-weight: bold;
+  font-size: larger;
 }
