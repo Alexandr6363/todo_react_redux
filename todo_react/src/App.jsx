@@ -1,39 +1,49 @@
 import { useState } from 'react';
 import AddTodo from './components/AddTodo.jsx';
 import TodoList from './components/TodoList.jsx';
+import { useSelector } from 'react-redux';
+import { addTodo, updateTodo, deleteTodo } from './redux/reducer.jsx';
+import { useDispatch } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-let Id = 0;
+
+let Id = 0
 
 export default function App() {
-    const [todos, setTodos] = useState([]);
+  const todos = useSelector((state) => state.todos);
+  const dispatch = useDispatch();
 
-    function handleAddTodo(title) {
-        setTodos([
-            ...todos,
-            {
-                id: Id++,
-                title: title,
-            },
-        ]);
-    }
+  function handleAddTodo(title) {
+    dispatch(
+      addTodo({
+        title: title,
+        id: Id++,
+      }))
+  }
 
-    function handleChangeTodo(newTodo) {
-        setTodos(
-          todos.map((todo) => todo.id === newTodo.id ? newTodo : todo))
-    }
+  function handleChangeTodo(todo) {
+    dispatch(
+      updateTodo(todo))
+  }
 
-    function handleDeleteTodo(todoId) {
-        setTodos(todos.filter((todo) => todo.id !== todoId));
-    }
+  function handleDeleteTodo(todoId) {
+    dispatch(
+      deleteTodo(todoId))
+  }
 
-    return (
-        <>
-            <TodoList
-                todos={todos}
-                updateTodo={handleChangeTodo}
-                deleteTodo={handleDeleteTodo}
-            />
-            <AddTodo addTodo={handleAddTodo} />
-        </>
-    );
+  return (
+    <div>
+      <div> 
+        <h1>ToDo app CRUD</h1>
+      </div>
+      <TodoList
+        todos={todos}
+        updateTodo={handleChangeTodo}
+        deleteTodo={handleDeleteTodo}
+      />
+      <AddTodo
+        addTodo={handleAddTodo}
+      />
+    </div>
+  );
 }
